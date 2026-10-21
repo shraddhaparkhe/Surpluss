@@ -33,6 +33,12 @@ npm run test:e2e
 
 Playwright starts the app on port 3001. Install Chromium once with `npx playwright install chromium`.
 
+## Jenkins
+
+The root `Jenkinsfile` runs dependency installation, typecheck, lint, unit tests, build, and Playwright end-to-end tests. Use a Jenkins agent with Node.js 20.9 or newer and the operating-system dependencies required by Playwright Chromium.
+
+To create the job, create a **Multibranch Pipeline** in Jenkins and add this GitHub repository as its branch source. Jenkins will discover the `Jenkinsfile` on `main`; configure a GitHub webhook to `https://<your-jenkins-host>/github-webhook/` if you want pushes to trigger builds.
+
 ## Scope and limitations
 
 - Catalogue visibility, price display, enquiry validation, lead inbox, seeded roles, API routes, and catalogue server actions are implemented.
